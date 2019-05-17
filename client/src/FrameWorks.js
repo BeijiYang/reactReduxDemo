@@ -1,36 +1,42 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { filterList } from './actions/frameWork'
 import Card from "./Card"
-import items from './items'
 
-export default class FrameWorks extends Component {
-  constructor() {
-    super()
-    this.state = {
-      items: [...items],
-      itemsToShow: [...items]
-    }
+class FrameWorks extends Component {
+
+  static protoType = {
+    itemsToShow: PropTypes.array.isRequired,
+    filterList: PropTypes.func.isRequired,
   }
 
   handleChange = e => {
-    const { state: { items } } = this
     const { target: { value } } = e
-    const inputStr = value.trim().toLowerCase()
-    const includesInput = str => str.toLowerCase().includes(inputStr)
-    const filteredList = items.filter(({ title, description }) => includesInput(title) || includesInput(description))
-    this.setState({ itemsToShow: filteredList })
+    this.props.filterList(value)
   }
 
   getList = items => items.map(item => <Card key={item.title} {...item} />)
 
   render() {
-    const { state: { itemsToShow }, getList } = this
+    const { props: { itemsToShow }, getList } = this
 
     const list = getList(itemsToShow)
     return (
       <div>
-        <input type="search" placeholder="input to search" onChange={this.handleChange} />
+        <input
+          type="search"
+          placeholder="input to search"
+          onChange={this.handleChange}
+        />
         {list}
       </div>
     )
   }
 }
+
+const mapStateToProps = ({ frameWorks: { itemsToShow } }) => ({
+  itemsToShow
+})
+
+export default connect(mapStateToProps, { filterList })(FrameWorks)
