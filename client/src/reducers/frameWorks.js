@@ -1,5 +1,5 @@
 import { FILTER_LIST, UPDATE_RESULT_STATE } from '../actions/types'
-import items from '../items'
+import items from '../components/items'
 
 const getFilteredList = str => {
   const inputStr = str.trim().toLowerCase()

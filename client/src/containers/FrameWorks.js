@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { filterList, updateResultState } from './actions/frameWork'
-import Card from "./Card"
+import { filterList, updateResultState } from '../actions/frameWork'
+import Card from "../components/Card"
 
 class FrameWorks extends Component {
 
