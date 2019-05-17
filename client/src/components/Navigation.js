@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   return (
-    <div>
-      <Link to='/'>home</Link>
-      <Link to='/frameWorks'>f</Link>
-    </div>
+    <nav>
+      <Link to='/'>HOME</Link>
+      <Link to='/frameWorks'>FRAMEWORKS</Link>
+    </nav>
   )
 }
