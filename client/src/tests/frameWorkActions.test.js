@@ -1,12 +1,12 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import * as actions from './frameWork'
-import * as types from './types'
+import * as actions from '../actions/frameWork'
+import * as types from '../actions/types'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-describe('async actions', () => {
+describe('frameWork actions', () => {
   it('should create an action to filter list', () => {
     const input = 'str'
     const expectedAction = {
