@@ -1,6 +1,6 @@
 @import 'colors';
 
-.card {
+.list-item {
   margin: 16px 0;
   padding: 16px;
   color: $secondary-text-color;
@@ -20,7 +20,7 @@
 }
 
 @media (min-width: 600px) {
-  .card {
+  .list-item {
     width: calc(50% - 64px);
     margin: 16px;
   }

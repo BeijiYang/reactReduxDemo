@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { filterList, updateResultState } from '../actions/frameWork'
-import Card from '../components/Card'
+import ListItem from '../components/ListItem'
 import '../styles/frameWorks.scss'
 
 class FrameWorks extends Component {
@@ -19,7 +19,7 @@ class FrameWorks extends Component {
     updateResultState()
   }
 
-  getList = items => items.map(item => <Card key={item.title} {...item} />)
+  getList = items => items.map(item => <ListItem key={item.title} {...item} />)
 
   render() {
     const { props: { itemsToShow, resultState }, getList } = this

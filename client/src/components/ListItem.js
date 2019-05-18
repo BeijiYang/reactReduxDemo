@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../styles/card.scss'
+import '../styles/list-item.scss'
 
-function Card({ title, description }) {
+function ListItem({ title, description }) {
   return (
-    <div className="card">
+    <div className="list-item">
       <div className="title">{title}</div>
       <div className="description">{description}</div>
     </div>
   )
 }
 
-Card.propTypes = {
+ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }
 
-export default Card
+export default ListItem
 
