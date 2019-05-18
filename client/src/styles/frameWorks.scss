@@ -1,0 +1,22 @@
+@import 'colors';
+
+.frame-works {
+  margin: 16px;
+  padding: 16px;
+  input {
+    padding: 8px;
+    width: 180px;
+    text-align: center;
+    border: solid 2px $accent-color;
+    border-radius: 50px;
+  }
+  input:focus {
+     outline: none;
+     box-shadow: 0px 1px 6px $accent-color;
+  }
+  .result-state {
+    margin: 16px 0;
+    padding: 0 8px;
+    color: $secondary-text-color;
+  }
+}

@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { filterList, updateResultState } from '../actions/frameWork'
-import Card from "../components/Card"
+import Card from '../components/Card'
+import '../styles/frameWorks.scss'
 
 class FrameWorks extends Component {
 
@@ -25,13 +26,13 @@ class FrameWorks extends Component {
 
     const list = getList(itemsToShow)
     return (
-      <div>
+      <div className="frame-works">
         <input
           type="search"
           placeholder="input to search"
           onChange={this.handleChange}
         />
-        {resultState}
+        <div className="result-state">{resultState}</div>
         {list}
       </div>
     )

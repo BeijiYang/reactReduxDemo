@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../styles/card.scss'
 
 function Card({ title, description }) {
   return (
-    <div>
+    <div className="card">
       <div className="title">{title}</div>
-      <br />
       <div className="description">{description}</div>
-      <hr />
     </div>
   )
 }

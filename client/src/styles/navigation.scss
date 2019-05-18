@@ -1,0 +1,15 @@
+@import 'colors';
+
+.navigation {
+  height: 50px;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  a {
+    margin: 0 16px;
+    text-decoration: none;
+    color: $primary-color-text;
+    font-weight: 500;
+  }
+}
