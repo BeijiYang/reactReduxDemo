@@ -32,8 +32,12 @@ class FrameWorks extends Component {
           placeholder="input to search"
           onChange={this.handleChange}
         />
-        <div className="result-state">{resultState}</div>
-        {list}
+        <div className="result-state">
+          {resultState}
+        </div>
+        <div className="result-cards">
+          {list}
+        </div>
       </div>
     )
   }

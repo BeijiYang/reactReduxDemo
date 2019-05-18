@@ -19,3 +19,15 @@
     color: $secondary-text-color;
   }
 }
+
+@media (min-width: 600px) {
+  .frame-works{
+    input {
+      margin: 16px;
+    }
+    .result-cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
