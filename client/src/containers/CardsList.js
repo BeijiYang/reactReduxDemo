@@ -45,7 +45,8 @@ class CardsList extends Component {
       <div className="cards-list">
         {cardList}
         <Button
-          handleClick={this.loadNextPage}
+          color="secondary"
+          onClick={this.loadNextPage}
           disabled={false}>Next Page</Button>
       </div>
     )
