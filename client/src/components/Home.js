@@ -22,7 +22,11 @@ class Home extends Component {
     fetchCards(++curPageIndex)
   }
 
-  getCards = cards => cards && cards.map(card => card ? <Card key={card.id} {...card} /> : <LoadingCard />)
+  getCards = cards => cards && cards.map(
+    card => card
+      ? <Card key={card.id} {...card} />
+      : <LoadingCard />
+  )
 
   render() {
     const { props: { cards }, getCards } = this

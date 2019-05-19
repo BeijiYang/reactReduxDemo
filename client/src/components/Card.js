@@ -22,7 +22,7 @@ const Card = ({ name, email, phone, intro, url }) => {
         style={{ display: showPlaceHolder ? 'none' : 'block' }}
       />
       <div className="loading-picture" style={{ display: showPlaceHolder ? 'block' : 'none' }} >
-        <FontAwesomeIcon icon={faCircleNotch} className="loading-picture-icon" spin size="4x" />
+        <FontAwesomeIcon icon={faCircleNotch} className="loading-picture-icon" spin size="6x" />
       </div>
       <div className="card-info">
         <div className="card-name">
