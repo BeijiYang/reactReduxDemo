@@ -1,10 +1,10 @@
-import { FETCH_CARDS } from './types'
+import { FETCH_CARDS, UPDATE_SCROLL_TOP } from './types'
 import axios from 'axios'
 
 const CARDS_NUM_PER_PAGE = 12
 const url = 'http://localhost:3001/companies'
 
-export const fetchCards = (pageIndex = 0) => async (dispatch, getState) => {
+const fetchCards = (pageIndex = 0) => async (dispatch, getState) => {
   const { cardsList: { cards } } = getState()
   const savedPageNum = cards.filter(Boolean).length / CARDS_NUM_PER_PAGE
   if (pageIndex < savedPageNum) return
@@ -15,3 +15,10 @@ export const fetchCards = (pageIndex = 0) => async (dispatch, getState) => {
     payload: data
   })
 }
+
+const updateScrollTop = newScrollTop => ({
+  type: UPDATE_SCROLL_TOP,
+  payload: newScrollTop
+})
+
+export { fetchCards, updateScrollTop }

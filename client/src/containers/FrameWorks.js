@@ -12,6 +12,10 @@ class FrameWorks extends Component {
     filterList: PropTypes.func.isRequired,
   }
 
+  componentDidMount() {
+    setTimeout(() => window.scrollTo(0, 0), 0)
+  }
+
   handleChange = e => {
     const { target: { value } } = e
     const { props: { filterList, updateResultState } } = this

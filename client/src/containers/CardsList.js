@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCards } from '../actions/cardsList'
+import { fetchCards, updateScrollTop } from '../actions/cardsList'
 import Card from '../components/Card'
 import LoadingCard from '../components/LoadingCard'
 import Button from '../components/CustomButton'
@@ -14,7 +14,16 @@ class CardsList extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchCards()
+    const { props: { fetchCards, scrollTop } } = this
+    fetchCards()
+    setTimeout(() => window.scrollTo(0, scrollTop), 0)
+  }
+
+
+  componentWillUnmount() {
+    const { props: { updateScrollTop } } = this
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    updateScrollTop(scrollTop)
   }
 
   loadNextPage = () => {
@@ -23,9 +32,9 @@ class CardsList extends Component {
   }
 
   getCards = cards => cards && cards.map(
-    card => card
+    (card, index) => card
       ? <Card key={card.id} {...card} />
-      : <LoadingCard />
+      : <LoadingCard key={index} />
   )
 
   render() {
@@ -43,9 +52,10 @@ class CardsList extends Component {
   }
 }
 
-const mapStateToProps = ({ cardsList: { cards, curPageIndex } }) => ({
+const mapStateToProps = ({ cardsList: { cards, curPageIndex, scrollTop } }) => ({
   cards,
-  curPageIndex
+  curPageIndex,
+  scrollTop
 })
 
-export default connect(mapStateToProps, { fetchCards })(CardsList)
+export default connect(mapStateToProps, { fetchCards, updateScrollTop })(CardsList)

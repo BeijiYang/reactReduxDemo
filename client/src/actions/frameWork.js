@@ -1,6 +1,6 @@
 import { FILTER_LIST, UPDATE_RESULT_STATE } from '../actions/types'
 
-const filterList = str => dispatch => dispatch({
+const filterList = str => ({
   type: FILTER_LIST,
   payload: str
 })
