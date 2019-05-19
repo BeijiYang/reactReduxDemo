@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchCards } from '../actions/home'
 import Card from './Card'
+import LoadingCard from './LoadingCard'
 import Button from './CustomButton'
 import '../styles/home.scss'
 
@@ -21,7 +22,7 @@ class Home extends Component {
     fetchCards(++curPageIndex)
   }
 
-  getCards = cards => cards && cards.map(card => <Card key={card.id} {...card} />)
+  getCards = cards => cards && cards.map(card => card ? <Card key={card.id} {...card} /> : <LoadingCard />)
 
   render() {
     const { props: { cards }, getCards } = this
