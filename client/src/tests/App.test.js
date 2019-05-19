@@ -43,7 +43,7 @@ describe('App', () => {
     wraper.find('[href="/frameWorks"]').simulate('click', { button: 0 })
     // render input and cards
     expect(wraper.find('input')).toHaveLength(1)
-    expect(wraper.find('Card')).toHaveLength(items.length)
+    expect(wraper.find('ListItem')).toHaveLength(items.length)
   })
 })
 

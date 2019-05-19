@@ -1,2 +1,4 @@
 export const FILTER_LIST = 'FILTER_LIST'
 export const UPDATE_RESULT_STATE = 'UPDATE_RESULT_STATE'
+
+export const FETCH_CARDS = 'FETCH_CARDS'
