@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import frameWorks from './frameWorks'
-import home from './home'
+import cardsList from './cardsList'
 
 
 const rootReducer = combineReducers({
   frameWorks,
-  home
+  cardsList
 })
 
 export default rootReducer
