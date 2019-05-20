@@ -31,4 +31,19 @@
     height: 52px;
     color: $primary-color-text
   }
+  .sub {
+    font-size: 12px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    .sub-text {
+      margin-right: 3px;
+      color: $divider-color;
+    }
+    .sub-link-text {
+      margin-left: 3px;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
 }

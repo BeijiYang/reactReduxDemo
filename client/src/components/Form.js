@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Button from '../components/CustomButton'
 import '../styles/form.scss'
 
-function Form({ setUsername, setPassword, submit, buttonText }) {
+function Form({ setUsername, setPassword, submit, buttonText, subText, subLinkText }) {
   return (
     <div className="login">
       <div className="form">
@@ -28,6 +28,10 @@ function Form({ setUsername, setPassword, submit, buttonText }) {
         >
           {buttonText}
         </Button>
+        <div className="sub">
+          <div className="sub-text">{subText}</div>
+          <div className="sub-link-text">{subLinkText}</div>
+        </div>
       </div>
     </div>
   )
@@ -38,7 +42,15 @@ Form.propTypes = {
   setPassword: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
+  subText: PropTypes.string,
+  subLinkText: PropTypes.string,
 }
+
+Form.defaultProps = {
+  subText: '',
+  subLinkText: '',
+}
+
 
 export default Form
 

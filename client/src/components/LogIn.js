@@ -16,6 +16,8 @@ const LogIn = ({ login }) => {
     setUsername={setUsername}
     setPassword={setPassword}
     submit={submit}
+    subText='Not Registered?'
+    subLinkText='Create an account'
   />
 }
 
