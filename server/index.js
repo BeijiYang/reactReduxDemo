@@ -34,6 +34,17 @@ app.post('/companies', (req, res) => {
   })
 })
 
+app.post('/login', (req, res) => {
+  const { body: { username, password } } = req
+  // do something with db
+  // if (wrong username or password ) res.status(401).json({msg: 'wrong username or password'})
+  res.json({
+    userId: 'fakeUser._id',
+    username,
+    msg: 'LOGIN_SUCCESS'
+  })
+})
+
 app.listen(3001, () => {
   console.log('Your server is running on port 3001')
 })
