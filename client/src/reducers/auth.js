@@ -1,15 +1,20 @@
 import { LOGIN, LOGOUT } from '../actions/types'
 
 const initialState = {
-  isAuthenticated: false
+  isAuthenticated: false,
+  userId: '',
+  username: '',
 }
 
 const auth = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN:
+      const { userId, username, msg } = payload
       return {
         ...state,
-        isAuthenticated: true
+        isAuthenticated: true,
+        userId,
+        username,
       }
 
     case LOGOUT:
