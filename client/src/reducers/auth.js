@@ -9,7 +9,7 @@ const initialState = {
 const auth = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN:
-      const { userId, username, msg } = payload
+      const { userId, username } = payload
       return {
         ...state,
         isAuthenticated: true,
