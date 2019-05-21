@@ -11,10 +11,10 @@
   padding: 0 20px;
   margin: 10px;
   text-align: center;
-  animation: noti 0.5s forwards; // delay?
+  animation: noti 0.5s forwards;
   @keyframes noti {
     0% { 
-      right: -100px }
+      right: -150px }
     50% { 
       right: 10px }
     100% { 
