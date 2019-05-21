@@ -4,14 +4,18 @@ import { connect } from 'react-redux'
 import '../styles/userInfo.scss'
 
 function UserInfo({ isAuthenticated, username }) {
+  const userName = username || localStorage.getItem('username')
   return (
     <div className="user-info">
       {isAuthenticated
         ? <div>
-          <div className="greeting">{`Welcome ${username}`}</div>
+          <div className="greeting">{`Welcome, ${userName}!`}</div>
           <div className="account">Your account: $6969</div>
         </div>
-        : <div className="greeting" >Please Login</div >}
+        : <div>
+          <div className="greeting">{`Hi, ${userName}!`}</div>
+          <div className="account">Please Login</div>
+        </div>}
     </div>
   )
 }

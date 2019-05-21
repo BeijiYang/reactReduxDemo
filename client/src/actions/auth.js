@@ -8,7 +8,16 @@ const signupUrl = `${serverUrl}/signup`
 
 const loginSuccess = 'LOGIN_SUCCESS'
 const signupSuccess = 'SIGNUP_SUCCESS'
-const checkIf = successMsg => msg => successMsg === msg
+const _checkIf = successMsg => msg => successMsg === msg
+
+const _setLocalStorage = data => {
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const value = data[key]
+      localStorage.setItem([key], value);
+    }
+  }
+}
 
 const logIn = data => ({
   type: LOGIN,
@@ -24,12 +33,13 @@ const handleError = () => { }
 const login = (username, password) => async dispatch => {
   const resData = await axios.post(loginUrl, { username, password }).then(res => res.data).catch(err => err.response)
   const { msg, ...data } = resData
-  if (checkIf(loginSuccess)(msg)) {
+  if (_checkIf(loginSuccess)(msg)) {
     const actions = [
       logIn(data),
       showNotificaton('login success')
     ]
     dispatch(actions)
+    _setLocalStorage(data)
   } else {
     handleError()
   }
@@ -38,12 +48,13 @@ const login = (username, password) => async dispatch => {
 const signup = (username, password) => async dispatch => {
   const resData = await axios.post(signupUrl, { username, password }).then(res => res.data).catch(err => err.response)
   const { msg, ...data } = resData
-  if (checkIf(signupSuccess)(msg)) {
+  if (_checkIf(signupSuccess)(msg)) {
     const actions = [
       logIn(data),
       showNotificaton('signup success')
     ]
     dispatch(actions)
+    _setLocalStorage(data)
   } else {
     handleError()
   }
