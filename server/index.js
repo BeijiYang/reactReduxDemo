@@ -45,6 +45,16 @@ app.post('/login', (req, res) => {
   })
 })
 
+app.post('/signup', (req, res) => {
+  const { body: { username, password } } = req
+  // do something with db
+  res.json({
+    userId: 'fakeUser._id',
+    username,
+    msg: 'SIGNUP_SUCCESS'
+  })
+})
+
 app.listen(3001, () => {
   console.log('Your server is running on port 3001')
 })
