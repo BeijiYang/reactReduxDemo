@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Home from './Home'
 import LogIn from '../containers/LogIn'
 import SignUp from '../containers/SignUp'
+import AboutMe from './AboutMe'
 import NotFound from './NotFound'
 import FrameWorks from '../containers/FrameWorks'
 
@@ -26,6 +27,7 @@ const Router = ({ isAuthenticated }) => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/frameWorks" component={FrameWorks} />
+      <Route path="/aboutme" component={AboutMe} />
       <CustomRoute path="/login" component={<LogIn />} authed={isAuthenticated} />
       <CustomRoute path="/signup" component={<SignUp />} authed={isAuthenticated} />
       <Route component={NotFound} />

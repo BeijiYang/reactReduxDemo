@@ -7,6 +7,7 @@ export default function Navigation() {
     <div className='navigation'>
       <Link activeOnlyWhenExact={true} to="/" label="HOME" />
       <Link to="/frameWorks" label="FRAMEWORKS" />
+      <Link to="/aboutme" label="ABOUTME" />
     </div>
   )
 }

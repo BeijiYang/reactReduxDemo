@@ -1,0 +1,64 @@
+@import 'colors';
+
+.about-me {
+  h2 {
+    color: $primary-color-dark;
+    padding-left: 16px;
+    border-left: solid 8px; 
+  }
+  .background{
+    img {
+      width: 100%;
+      height: 250px;
+      border-top: solid 1px yellow;
+    }
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid 2px white;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: solid 2px white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -60px;
+  }
+  .who {
+    margin-top: 100px;
+    margin-left: 16px;
+    .intro {
+      margin: 30px 20px;
+      line-height: 1.8;
+      color: $secondary-text-color;
+      font-size: 16px;
+    }
+  }
+  .touch {
+     margin-top: 50px;
+     margin-left: 16px;
+     .touch-icons {
+       margin: 30px 20px;
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+     }
+     .touch-icon {
+       width: 40px;
+       color: $accent-color;
+       opacity: 0.5;
+     }
+     .link {
+       color: $accent-color;
+       opacity: 1;
+       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+       -webkit-user-select: none;
+       -moz-user-focus: none;
+       -moz-user-select: none;
+     }
+  }
+}
