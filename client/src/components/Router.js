@@ -1,8 +1,8 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Home from './Home'
-import LogIn from './LogIn'
+import LogIn from '../containers/LogIn'
 import NotFound from './NotFound'
 import FrameWorks from '../containers/FrameWorks'
 
