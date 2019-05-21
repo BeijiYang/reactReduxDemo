@@ -16,7 +16,9 @@
 
 @media (min-width: 600px) {
   .navigation {
-    top: 0;
+    position: absolute;
+    top: 50px;
+    height: 25px;
     background-color: $primary-color;
     display: flex;
     justify-content: flex-start;

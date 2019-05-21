@@ -9,3 +9,11 @@
   line-height: 1.8;
   color: $secondary-text-color
 }
+
+@media (min-width: 600px) {
+  .user-info {
+    width: 800px;
+    margin: 16px auto;
+    padding-left: 36px;
+  }
+}

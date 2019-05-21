@@ -23,7 +23,7 @@ function AboutMe(props) {
       <section className="touch">
         <h2>GET IN TOUCH</h2>
         <div className="touch-icons">
-          <a href="https://github.com/BeijiYang">
+          <a href="https://github.com/BeijiYang" className="link" >
             <FontAwesomeIcon icon={faGithub} size="3x" className="touch-icon link" />
           </a>
           <FontAwesomeIcon icon={faWeixin} size="3x" className="touch-icon" />
