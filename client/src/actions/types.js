@@ -6,3 +6,6 @@ export const UPDATE_SCROLL_TOP = 'UPDATE_SCROLL_TOP'
 
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
+
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION'
+export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION'

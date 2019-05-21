@@ -5,12 +5,12 @@ import rootReducer from './reducers/'
 
 const initialState = {}
 
-// const multiActionMiddleware = store => next => action => {
-//   if (!Array.isArray(action)) return next(action)
-//   return action.map(a => store.dispatch(a))
-// }
+const multiActionMiddleware = store => next => action => {
+  if (!Array.isArray(action)) return next(action)
+  return action.map(a => store.dispatch(a))
+}
 
-const middleware = [thunk]
+const middleware = [thunk, multiActionMiddleware]
 
 const store = createStore(
   rootReducer,

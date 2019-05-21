@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
 import { logout } from '../actions/auth'
+import Notification from './Notification'
 import '../styles/header.scss'
 
 const Header = ({ isAuthenticated, logout }) => {
@@ -31,6 +32,7 @@ const Header = ({ isAuthenticated, logout }) => {
           </Link>
         </div>
       }
+      <Notification />
     </div>
   )
 }
