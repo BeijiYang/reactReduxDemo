@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Button from '../components/CustomButton'
 import '../styles/form.scss'
 
-function Form({ setUsername, setPassword, submit, buttonText, subText, subLinkText }) {
+function Form({ setUsername, setPassword, submit, buttonText, subText, subLinkText, subLink }) {
   return (
     <div className="login">
       <div className="form">
         <div className="form-line">
-          {/*如果需要扩展表单，产生多个 input, 可以传入数组[username, usersex, userId] 在本组件 map 产生多个 input */}
           <div className="form-key">username</div>
           <input
             type="text"
@@ -30,7 +30,7 @@ function Form({ setUsername, setPassword, submit, buttonText, subText, subLinkTe
         </Button>
         <div className="sub">
           <div className="sub-text">{subText}</div>
-          <div className="sub-link-text">{subLinkText}</div>
+          <Link className="sub-link-text" to={`/${subLink}`}>{subLinkText}</Link>
         </div>
       </div>
     </div>
@@ -44,11 +44,13 @@ Form.propTypes = {
   buttonText: PropTypes.string.isRequired,
   subText: PropTypes.string,
   subLinkText: PropTypes.string,
+  subLink: PropTypes.string,
 }
 
 Form.defaultProps = {
   subText: '',
   subLinkText: '',
+  subLink: '',
 }
 
 
