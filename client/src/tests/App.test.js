@@ -23,14 +23,13 @@ describe('App', () => {
     expect(wraper.find('[href="/frameWorks"]')).toHaveLength(1)
   })
 
-  it('home page renders HomeTitle', () => {
-    const homeTitle = 'Home'
+  it('home page renders UserInfo', () => {
     const wraper = mount(
       <Provider store={store}>
         <App />
       </Provider>
     )
-    expect(wraper.contains(homeTitle)).toBe(true)
+    expect(wraper.find('.user-info')).toHaveLength(1)
   })
 
   it('frameWorks page renders input and cards', () => {
