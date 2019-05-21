@@ -5,7 +5,7 @@
   top: 50px;
   color: $primary-color-text;
   background: $primary-color;
-  width: 100px;
+  min-width: 120px;
   height: 50px;
   font-size: 14px;
   padding: 0 20px;
@@ -14,7 +14,7 @@
   animation: noti 0.5s forwards;
   @keyframes noti {
     0% { 
-      right: -150px }
+      right: -180px }
     50% { 
       right: 10px }
     100% { 
