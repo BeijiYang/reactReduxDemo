@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faWeixin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import '../styles/aboutMe.scss'
@@ -10,14 +9,11 @@ function AboutMe(props) {
       <div className="background">
         <img src="https://picsum.photos/id/128/400/200" alt="background" />
       </div>
-      <img src="https://avatars0.githubusercontent.com/u/16985427" alt="" className="avatar" />
+      <img src="https://avatars0.githubusercontent.com/u/16985427" alt="avatar" className="avatar" />
       <div className="who">
         <h2>WHO AM I</h2>
         <section className="intro">
-          {/* I am Yujie Wang<br />
-          a front end developer. */}
-          I am Yujie Wang, a front end developer.<br />
-          {/* I use Javascript HTML5 CSS3 React Redux Node.js ... */}
+          I am Yujie Wang, a front end developer.
         </section>
       </div>
       <section className="touch">
@@ -33,10 +29,6 @@ function AboutMe(props) {
       </section>
     </div>
   )
-}
-
-AboutMe.propTypes = {
-
 }
 
 export default AboutMe
