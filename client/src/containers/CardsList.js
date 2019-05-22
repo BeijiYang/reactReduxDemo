@@ -42,6 +42,7 @@ class CardsList extends Component {
   handleClickForWeb = (direction) => {
     let { props: { curPageIndex, nextPageForWeb } } = this
     nextPageForWeb(curPageIndex += direction)
+    window.scrollTo(0, 0)
   }
 
   getCards = cards => cards && cards.map(
