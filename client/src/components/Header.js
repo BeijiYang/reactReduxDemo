@@ -8,28 +8,56 @@ import { logout } from '../actions/auth'
 import Notification from './Notification'
 import '../styles/header.scss'
 
+const signinForWeb = (
+  <div className="signin-web">
+    <Link to="/login">Login</Link>
+    <Link to="/signup">Signup</Link>
+  </div>
+)
+
+const signinForMobile = (
+  <div className="signin-mobile">
+    <Link to="/login">
+      <FontAwesomeIcon
+        icon={faSignInAlt}
+        size="xs"
+        className="header-auth-icon"
+      />
+    </Link>
+  </div>
+)
+
+const logoutForMobile = logout => (
+  <div className="logout-mobile">
+    <FontAwesomeIcon
+      onClick={logout}
+      icon={faSignOutAlt}
+      size="xs"
+      className="header-auth-icon"
+    />
+  </div>
+)
+
+const logoutForWeb = logout => (
+  <div className="logout-web" onClick={logout}>
+    Logout
+  </div>
+)
+
+
 const Header = ({ isAuthenticated, logout }) => {
-  const handleLogout = () => logout()
+
   return (
     <div className="header">
       <span>Header</span>
       {isAuthenticated
         ? <div className="header-auth">
-          <FontAwesomeIcon
-            onClick={handleLogout}
-            icon={faSignOutAlt}
-            size="xs"
-            className="header-auth-icon"
-          />
+          {logoutForMobile(logout)}
+          {logoutForWeb(logout)}
         </div>
         : <div className="header-auth">
-          <Link to="/login">
-            <FontAwesomeIcon
-              icon={faSignInAlt}
-              size="xs"
-              className="header-auth-icon"
-            />
-          </Link>
+          {signinForMobile}
+          {signinForWeb}
         </div>
       }
       <Notification />
