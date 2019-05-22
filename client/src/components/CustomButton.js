@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-// import config from '../config/config'
 
-// const {
-//   colors: { ACCENT_COLOR }
-// } = config
 const PRIMARY_COLOR = '#4CAF50';
 const ACCENT_COLOR = '#FF5252';
 
@@ -27,14 +23,14 @@ const theme = createMuiTheme({
 class CustomButton extends React.Component {
 
   render() {
-    const { children, onClick, disabled, color, large } = this.props
+    const { children, onClick, disabled, color, size, variant } = this.props
 
     return (
       <MuiThemeProvider theme={theme}>
         <Button
-          variant="contained"
+          variant={variant}
           color={color}
-          size={large}
+          size={size}
           onClick={onClick}
           disabled={disabled}
         >
@@ -50,12 +46,14 @@ CustomButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   color: PropTypes.string,
-  large: PropTypes.string,
+  size: PropTypes.string,
+  variant: PropTypes.string,
 }
 
 CustomButton.defaultProps = {
   disabled: false,
-  large: 'large',
+  size: 'large',
+  variant: "contained"
 };
 
 
