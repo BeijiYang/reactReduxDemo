@@ -1,6 +1,11 @@
+@import 'colors';
+
 .cards-list {
-  button {
-    margin: 16px;
+  .mobile {
+    margin: 16px auto;
+  }
+  .web {
+    display: none;
   }
 }
 
@@ -10,8 +15,18 @@
     flex-wrap: wrap;
     max-width: 800px;
     margin: 0 auto;
-    button {
-      margin: 0 auto;
+    .mobile {
+      display: none;
+    }
+    .web {
+      display: block;
+      margin: 16px auto;
+      .page-index {
+        color: $secondary-text-color;
+        font-size: 14px;
+        line-height: 14px;
+        padding: 8px;
+      }
     }
   }
 }

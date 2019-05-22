@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCards, updateScrollTop } from '../actions/cardsList'
+import { nextPageForMobile, nextPageForWeb, updateScrollTop } from '../actions/cardsList'
 import Card from '../components/Card'
 import LoadingCard from '../components/LoadingCard'
 import Button from '../components/CustomButton'
@@ -9,13 +9,18 @@ import '../styles/cards-list.scss'
 
 class CardsList extends Component {
   static propTypes = {
-    fetchCards: PropTypes.func.isRequired,
-    cards: PropTypes.array.isRequired,
+    nextPageForMobile: PropTypes.func.isRequired,
+    nextPageForWeb: PropTypes.func.isRequired,
+    updateScrollTop: PropTypes.func.isRequired,
+    cardsOnCurPage: PropTypes.array.isRequired,
+    curPageIndex: PropTypes.number.isRequired,
+    totalPageNum: PropTypes.number.isRequired,
+    scrollTop: PropTypes.number.isRequired,
   }
 
   componentDidMount() {
-    const { props: { fetchCards, scrollTop } } = this
-    fetchCards()
+    const { props: { scrollTop, nextPageForMobile } } = this
+    nextPageForMobile()
     setTimeout(() => window.scrollTo(0, scrollTop), 0)
   }
 
@@ -26,9 +31,17 @@ class CardsList extends Component {
     updateScrollTop(scrollTop)
   }
 
-  loadNextPage = () => {
-    let { props: { curPageIndex, fetchCards } } = this
-    fetchCards(++curPageIndex)
+  handleClichForMobile = () => {
+    let { props: { curPageIndex, nextPageForMobile } } = this
+    nextPageForMobile(++curPageIndex)
+  }
+
+  /**
+   * @param direction {Number} 1 for next & -1 for previous
+   */
+  handleClickForWeb = (direction) => {
+    let { props: { curPageIndex, nextPageForWeb } } = this
+    nextPageForWeb(curPageIndex += direction)
   }
 
   getCards = cards => cards && cards.map(
@@ -38,25 +51,50 @@ class CardsList extends Component {
   )
 
   render() {
-    const { props: { cards }, getCards } = this
-
-    const cardList = getCards(cards)
+    const { props: { cardsOnCurPage, curPageIndex, totalPageNum }, getCards } = this
+    const cardList = getCards(cardsOnCurPage)
     return (
       <div className="cards-list">
         {cardList}
-        <Button
-          color="secondary"
-          onClick={this.loadNextPage}
-          disabled={false}>Next Page</Button>
+        <div className="mobile">
+          <Button
+            color="secondary"
+            onClick={this.handleClichForMobile}
+            disabled={false}>Next Page</Button>
+        </div>
+        <div className="web">
+          <Button
+            variant="text"
+            color="primary"
+            size='medium'
+            onClick={() => this.handleClickForWeb(-1)}
+            disabled={curPageIndex === 0}
+          >
+            {'<  Prev'}
+          </Button>
+          <label className="page-index">
+            {`${curPageIndex + 1} / ${totalPageNum}`}
+          </label>
+          <Button
+            variant="text"
+            color="primary"
+            size='medium'
+            onClick={() => this.handleClickForWeb(1)}
+            disabled={curPageIndex + 1 === totalPageNum}
+          >
+            {'Next  >'}
+          </Button>
+        </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ cardsList: { cards, curPageIndex, scrollTop } }) => ({
-  cards,
+const mapStateToProps = ({ cardsList: { cardsOnCurPage, curPageIndex, totalPageNum, scrollTop } }) => ({
+  cardsOnCurPage,
   curPageIndex,
+  totalPageNum,
   scrollTop
 })
 
-export default connect(mapStateToProps, { fetchCards, updateScrollTop })(CardsList)
+export default connect(mapStateToProps, { nextPageForMobile, nextPageForWeb, updateScrollTop })(CardsList)
