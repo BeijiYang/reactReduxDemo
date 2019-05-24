@@ -76,7 +76,7 @@ class CardsList extends Component {
     return (
       <div className="cards-list">
         <div className="mobile-switch">
-          <div>useNextButton</div>
+          <div className="switch-title">useNextButton</div>
           <Switch onSwitch={switchNextPageButton} />
         </div>
         {cardList}

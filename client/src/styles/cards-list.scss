@@ -4,6 +4,14 @@
   .mobile {
     margin: 16px auto;
   }
+  .mobile-switch {
+    display: flex;
+    margin: 16px;
+    .switch-title {
+      padding: 0 8px;
+      opacity: 0.7;
+    }
+  }
   .web {
     display: none;
   }
@@ -16,6 +24,9 @@
     max-width: 800px;
     margin: 0 auto;
     .mobile {
+      display: none;
+    }
+    .mobile-switch {
       display: none;
     }
     .web {
