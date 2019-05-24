@@ -9,4 +9,9 @@ const closeNotification = () => ({
   type: CLOSE_NOTIFICATION,
 })
 
-export { showNotificaton, closeNotification }
+const showSettingNotification = status => async dispatch => {
+  const text = status ? 'use NEXT PAGE button' : 'use infinite scroll'
+  dispatch(showNotificaton(text))
+}
+
+export { showNotificaton, closeNotification, showSettingNotification }

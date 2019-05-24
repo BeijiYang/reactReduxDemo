@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { nextPageForMobile, nextPageForWeb, updateScrollTop, switchNextPageButton } from '../actions/cardsList'
+import { showSettingNotification } from '../actions/notification'
 import Card from '../components/Card'
 import LoadingCard from '../components/LoadingCard'
 import Button from '../components/CustomButton'
@@ -19,6 +20,7 @@ class CardsList extends Component {
     scrollTop: PropTypes.number.isRequired,
     showNextPageButton: PropTypes.bool.isRequired,
     switchNextPageButton: PropTypes.func.isRequired,
+    showSettingNotification: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
@@ -64,6 +66,12 @@ class CardsList extends Component {
     window.scrollTo(0, 0)
   }
 
+  handleSwitch = status => {
+    const { props: { switchNextPageButton, showSettingNotification } } = this
+    switchNextPageButton(status)
+    showSettingNotification(status)
+  }
+
   getCards = cards => cards && cards.map(
     (card, index) => card
       ? <Card key={card.id} {...card} />
@@ -71,13 +79,19 @@ class CardsList extends Component {
   )
 
   render() {
-    const { props: { cardsOnCurPage, curPageIndex, totalPageNum, showNextPageButton, switchNextPageButton }, getCards } = this
+    const {
+      props: { cardsOnCurPage, curPageIndex, totalPageNum, showNextPageButton },
+      getCards,
+      handleSwitch
+    } = this
+
     const cardList = getCards(cardsOnCurPage)
+
     return (
       <div className="cards-list">
         <div className="mobile-switch">
           <div className="switch-title">useNextButton</div>
-          <Switch onSwitch={switchNextPageButton} />
+          <Switch onSwitch={handleSwitch} />
         </div>
         {cardList}
         {showNextPageButton
@@ -124,4 +138,10 @@ const mapStateToProps = ({ cardsList: { cardsOnCurPage, curPageIndex, totalPageN
   showNextPageButton
 })
 
-export default connect(mapStateToProps, { nextPageForMobile, nextPageForWeb, updateScrollTop, switchNextPageButton })(CardsList)
+export default connect(mapStateToProps, {
+  nextPageForMobile,
+  nextPageForWeb,
+  updateScrollTop,
+  switchNextPageButton,
+  showSettingNotification
+})(CardsList)
