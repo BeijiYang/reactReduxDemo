@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Switch from '../components/Switch'
 
+/**
+ * interface: this.props.onSwitch function
+ */
 class SwitchContainer extends Component {
 
   static propTypes = {
