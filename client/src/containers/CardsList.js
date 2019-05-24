@@ -27,10 +27,27 @@ class CardsList extends Component {
     setTimeout(() => window.scrollTo(0, scrollTop), 0)
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { showNextPageButton } = nextProps
+    if (!showNextPageButton) {
+      // use infinite scroll
+      window.addEventListener('scroll', this.handleOnScroll)
+    } else {
+      window.removeEventListener('scroll', this.handleOnScroll)
+    }
+  }
+
   componentWillUnmount() {
     const { props: { updateScrollTop } } = this
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     updateScrollTop(scrollTop)
+  }
+
+  handleOnScroll = e => {
+    const { target: { documentElement: { scrollHeight, scrollTop, clientHeight } } } = e
+    const reachTheBottom = scrollTop + clientHeight === scrollHeight
+
+    if (reachTheBottom) this.handleClichForMobile()
   }
 
   handleClichForMobile = () => {
