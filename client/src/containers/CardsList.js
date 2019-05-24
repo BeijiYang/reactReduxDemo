@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { nextPageForMobile, nextPageForWeb, updateScrollTop } from '../actions/cardsList'
+import { nextPageForMobile, nextPageForWeb, updateScrollTop, switchNextPageButton } from '../actions/cardsList'
 import Card from '../components/Card'
 import LoadingCard from '../components/LoadingCard'
 import Button from '../components/CustomButton'
+import Switch from './SwitchContainer'
 import '../styles/cards-list.scss'
 
 class CardsList extends Component {
@@ -16,6 +17,8 @@ class CardsList extends Component {
     curPageIndex: PropTypes.number.isRequired,
     totalPageNum: PropTypes.number.isRequired,
     scrollTop: PropTypes.number.isRequired,
+    showNextPageButton: PropTypes.bool.isRequired,
+    switchNextPageButton: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
@@ -23,7 +26,6 @@ class CardsList extends Component {
     nextPageForMobile()
     setTimeout(() => window.scrollTo(0, scrollTop), 0)
   }
-
 
   componentWillUnmount() {
     const { props: { updateScrollTop } } = this
@@ -52,17 +54,23 @@ class CardsList extends Component {
   )
 
   render() {
-    const { props: { cardsOnCurPage, curPageIndex, totalPageNum }, getCards } = this
+    const { props: { cardsOnCurPage, curPageIndex, totalPageNum, showNextPageButton, switchNextPageButton }, getCards } = this
     const cardList = getCards(cardsOnCurPage)
     return (
       <div className="cards-list">
-        {cardList}
-        <div className="mobile">
-          <Button
-            color="secondary"
-            onClick={this.handleClichForMobile}
-            disabled={false}>Next Page</Button>
+        <div className="mobile-switch">
+          <div>useNextButton</div>
+          <Switch onSwitch={switchNextPageButton} />
         </div>
+        {cardList}
+        {showNextPageButton
+          ? <div className="mobile">
+            <Button
+              color="secondary"
+              onClick={this.handleClichForMobile}
+              disabled={false}>Next Page</Button>
+          </div>
+          : null}
         <div className="web">
           <Button
             variant="text"
@@ -91,11 +99,12 @@ class CardsList extends Component {
   }
 }
 
-const mapStateToProps = ({ cardsList: { cardsOnCurPage, curPageIndex, totalPageNum, scrollTop } }) => ({
+const mapStateToProps = ({ cardsList: { cardsOnCurPage, curPageIndex, totalPageNum, scrollTop, showNextPageButton } }) => ({
   cardsOnCurPage,
   curPageIndex,
   totalPageNum,
-  scrollTop
+  scrollTop,
+  showNextPageButton
 })
 
-export default connect(mapStateToProps, { nextPageForMobile, nextPageForWeb, updateScrollTop })(CardsList)
+export default connect(mapStateToProps, { nextPageForMobile, nextPageForWeb, updateScrollTop, switchNextPageButton })(CardsList)

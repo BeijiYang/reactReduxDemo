@@ -1,4 +1,4 @@
-import { UPDATE_CARDS, UPDATE_CUR_PAGE_FOR_MOBILE, UPDATE_CUR_PAGE_FOR_WEB, UPDATE_CUR_PAGE_INDEX, UPDATE_SCROLL_TOP } from '../actions/types'
+import { UPDATE_CARDS, UPDATE_CUR_PAGE_FOR_MOBILE, UPDATE_CUR_PAGE_FOR_WEB, UPDATE_CUR_PAGE_INDEX, UPDATE_SCROLL_TOP, SHOW_NEXT_PAGE_BUTTON } from '../actions/types'
 
 const CARDS_NUM_PER_PAGE = 12
 
@@ -8,6 +8,7 @@ const initialState = {
   curPageIndex: 0,
   totalPageNum: 0,
   scrollTop: 0,
+  showNextPageButton: true,
 }
 
 const homeReducer = (state = initialState, { type, payload }) => {
@@ -43,6 +44,12 @@ const homeReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         scrollTop: payload
+      }
+
+    case SHOW_NEXT_PAGE_BUTTON:
+      return {
+        ...state,
+        showNextPageButton: payload
       }
 
     default:

@@ -1,4 +1,4 @@
-import { UPDATE_CARDS, UPDATE_SCROLL_TOP, UPDATE_CUR_PAGE_INDEX, UPDATE_CUR_PAGE_FOR_MOBILE, UPDATE_CUR_PAGE_FOR_WEB } from './types'
+import { UPDATE_CARDS, UPDATE_SCROLL_TOP, UPDATE_CUR_PAGE_INDEX, UPDATE_CUR_PAGE_FOR_MOBILE, UPDATE_CUR_PAGE_FOR_WEB, SHOW_NEXT_PAGE_BUTTON } from './types'
 import axios from 'axios'
 
 const CARDS_NUM_PER_PAGE = 12
@@ -65,4 +65,9 @@ const updateScrollTop = newScrollTop => ({
   payload: newScrollTop
 })
 
-export { nextPageForMobile, nextPageForWeb, updateScrollTop }
+const switchNextPageButton = bool => ({
+  type: SHOW_NEXT_PAGE_BUTTON,
+  payload: bool
+})
+
+export { nextPageForMobile, nextPageForWeb, updateScrollTop, switchNextPageButton }
