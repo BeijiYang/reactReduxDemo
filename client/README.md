@@ -1,6 +1,6 @@
 
 # About
-React/Redux 响应式设计流体布局练手项目
+React/Redux 响应式设计流体布局练手小项目
 
 # Features
 
