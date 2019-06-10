@@ -1,7 +1,6 @@
+
 # About
 React/Redux 响应式设计流体布局练手项目
-
-![overview](./client/gifs/demo-overview.gif)
 
 # Features
 
@@ -15,28 +14,12 @@ React/Redux 响应式设计流体布局练手项目
 * show loading indicator using React Hooks
 * use material palette, customed material-ui and font awesome
 
+# Usage
 
-# GIF Demonstration
+```
+yarn
 
-**按钮翻页**
-![button](./client/gifs/demo-button.gif)
+yarn start
+```
 
-
-**切换为无限加载**
-![infiniteScroll](./client/gifs/demo-switchToInfiniteScroll.gif)
-
-
-**慢网速下**
-![infiniteScroll](./client/gifs/demo-lowspeed.gif)
-
-
-**登录注册登出**
-![infiniteScroll](./client/gifs/demo-form.gif)
-
-
-**搜索框**
-![infiniteScroll](./client/gifs/demo-frameworks.gif)
-
-
-**PC**
-![infiniteScroll](./client/gifs/demo-pc.gif)
+![overview](./gifs/demo-overview.gif)
