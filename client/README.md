@@ -1,7 +1,7 @@
 # About
 React/Redux 响应式设计流体布局练手项目
 
-![overview](./gifs/demo-overview.gif)
+![overview](./client/gifs/demo-overview.gif)
 
 # Features
 
@@ -18,16 +18,25 @@ React/Redux 响应式设计流体布局练手项目
 
 # GIF Demonstration
 
-
 **按钮翻页**
-![button](./gifs/demo-button.gif)
+![button](./client/gifs/demo-button.gif)
+
+
 **切换为无限加载**
-![infiniteScroll](./gifs/demo-switchToInfiniteScroll.gif)
+![infiniteScroll](./client/gifs/demo-switchToInfiniteScroll.gif)
+
+
 **慢网速下**
-![infiniteScroll](./gifs/demo-lowspeed.gif)
+![infiniteScroll](./client/gifs/demo-lowspeed.gif)
+
+
 **登录注册登出**
-![infiniteScroll](./gifs/demo-form.gif)
+![infiniteScroll](./client/gifs/demo-form.gif)
+
+
 **搜索框**
-![infiniteScroll](./gifs/demo-frameworks.gif)
+![infiniteScroll](./client/gifs/demo-frameworks.gif)
+
+
 **PC**
-![infiniteScroll](./gifs/demo-pc.gif)
+![infiniteScroll](./client/gifs/demo-pc.gif)
